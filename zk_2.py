@@ -1,24 +1,31 @@
-#Výpočet souřadnic středu a poloměru kružnice dané třemi body
-
 from math import sqrt
 
-#načtení souřadnic bodů
-#x = [float(input("Zadejte souřadnici prvního bodu: "))]
-#y = float(input("Zadejte souřadnici druhého bodu: "))
-#z = float(input("Zadejte souřadnici třetího bodu: "))
+#loading variables
+list = [ ]
+w = 1
+for i in range(0, 3):
+    updated_list = [float(input(f"Enter the x coordinates of {w}. point: ")), float(input(f"Enter the y coordinates of {w}. point: "))]
+    list.append(updated_list)
+    w += 1
 
+x = list [0]
+y = list [1]
+z = list [2]
+
+"""
 x=[1,1]
 y=[2,8]
-z=[-6,2]
+z=[-6,2]"""
 
-def vypocet(X, Y, Z):
+#calculation of the center of the circle
+def calculation (X, Y, Z):
     (x1, y1), (x2, y2), (x3, y3) = X, Y, Z
-    A = x1 * (y2 - y3) - y1 * (x2 - x3) + x2 * y3 - x3 * y2
-    B = (x1 ** 2 + y1 ** 2) * (y3 - y2) + (x2 ** 2 + y2 ** 2) * (y1 - y3) + (x3 ** 2 + y3 ** 2) * (y2 - y1)
-    C = (x1 ** 2 + y1 ** 2) * (x2 - x3) + (x2 ** 2 + y2 ** 2) * (x3 - x1) + (x3 ** 2 + y3 ** 2) * (x1 - x2)
-    m = (-B / A / 2)
-    n = (-C / A / 2)
+    a = x1 * (y2 - y3) - y1 * (x2 - x3) + x2 * y3 - x3 * y2
+    b = (x1 ** 2 + y1 ** 2) * (y3 - y2) + (x2 ** 2 + y2 ** 2) * (y1 - y3) + (x3 ** 2 + y3 ** 2) * (y2 - y1)
+    c = (x1 ** 2 + y1 ** 2) * (x2 - x3) + (x2 ** 2 + y2 ** 2) * (x3 - x1) + (x3 ** 2 + y3 ** 2) * (x1 - x2)
+    m = (-b / a / 2)
+    n = (-c / a / 2)
     r = sqrt((x1-m)**2+(y1-n)**2)
-    return print(f"Střed kružnice je v bodě o souřadnicích [{m}, {n}] a poloměr kružnice je {r}.")
+    return print(f"The center of circle is in point with coordinates [{m}, {n}], the radius of the circle is: {r}.")
 
-vypocet(x,y,z)
+calculation (x,y,z)

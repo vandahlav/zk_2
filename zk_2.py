@@ -1,4 +1,3 @@
-from calendar import month_name
 from math import sqrt
 
 #loading variables

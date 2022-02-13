@@ -14,13 +14,7 @@ z = list [2]
 
 #calculation of the center of the circle
 def getCircleCenterAndRadius (X, Y, Z):
-    (x1, y1), (x2, y2), (x3, y3) = X, Y, Z
-    if y1 == y2 == y3:
-        print("Points are in one line. Program cannot calculate coordinates of the circle.")
-        quit()
-    if x1 == x2 == x3:
-        print("Points are in one line. Program cannot calculate coordinates of the circle.")
-        quit()           
+    (x1, y1), (x2, y2), (x3, y3) = X, Y, Z  
 
     a = x1 * (y2 - y3) - y1 * (x2 - x3) + x2 * y3 - x3 * y2
     b = (x1 ** 2 + y1 ** 2) * (y3 - y2) + (x2 ** 2 + y2 ** 2) * (y1 - y3) + (x3 ** 2 + y3 ** 2) * (y2 - y1)
@@ -28,15 +22,13 @@ def getCircleCenterAndRadius (X, Y, Z):
     try:
         m = (-b / a / 2)
         n = (-c / a / 2)
-        if x1 == m:
-            print("Cannot process, program will end.")
-            quit()
-        if y1 == n:
-            print("Cannot process, program will end.")
-            quit()
-        r = sqrt((x1-m)**2+(y1-n)**2)
+        
+        r = sqrt((x1-m)**2+(y1-n)**2)   #radius
+
     except ZeroDivisionError:
-        print("Cannot divide with zero.")
+        print(f"Circle has no radius. It is formed by only one point.")
+        quit()
+
     return print(f"The center of circle is in point with coordinates [{m}, {n}], the radius of the circle is: {r:.3f}.")
 
 getCircleCenterAndRadius (x,y,z)

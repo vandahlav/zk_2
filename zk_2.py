@@ -26,7 +26,7 @@ def getCircleCenterAndRadius (X, Y, Z):
         r = sqrt((x1-m)**2+(y1-n)**2)   #radius
 
     except ZeroDivisionError:
-        print(f"Circle has no radius. It is formed by only one point.")
+        print(f"Circle cannot be constructed. Points are identical or collinear.")
         quit()
 
     return print(f"The center of circle is in point with coordinates [{m}, {n}], the radius of the circle is: {r:.3f}.")
